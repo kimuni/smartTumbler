@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/alr"
-        android:layout_width="202dp"
-        android:layout_height="112dp"
+        android:layout_width="300dp"
+        android:layout_height="150dp"
         android:layout_gravity="center"
         android:onClick="back"
         android:src="@drawable/alarm" />

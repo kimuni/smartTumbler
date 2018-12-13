@@ -34,6 +34,7 @@ import static java.lang.Integer.parseInt;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG="MAIN";
+    int todayWater=2000;
 
     private static final int REQUEST_CONNECT_DEVICE=1;
     private static final int REQUEST_EVABLE_BT =2;
@@ -48,8 +49,8 @@ public class MainActivity extends AppCompatActivity {
     Calendar calendar;
 
     Button check;
-    TextView tv;
     EditText editText;
+
 
     private final Handler mHandler = new Handler() {
         public void handleMessage(Message msg) {
@@ -67,7 +68,6 @@ public class MainActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         check = (Button)findViewById(R.id.check);
-
 
 
         calendar = Calendar.getInstance();
@@ -108,9 +108,10 @@ public class MainActivity extends AppCompatActivity {
         editText = (EditText)findViewById(R.id.editText);
         String str = editText.getText().toString();
         int result=Integer.parseInt(str);
-        result=200-result;
-        tv=(TextView)findViewById(R.id.tv);
-        tv.setText(String.valueOf(result));
+        todayWater=todayWater-result;
+        TextView tv=(TextView)findViewById(R.id.tv);
+        String tW=String.valueOf(todayWater);
+        tv.setText(tW);
     }
 
     public void start(View v) {
@@ -120,6 +121,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void mOnClick(View v) {
         setContentView(R.layout.menu);
+
+        TextView tv = (TextView)findViewById(R.id.tv);
+        String tW=String.valueOf(todayWater);
+        tv.setText(tW);
 
         StringBuilder time = new StringBuilder();
 
@@ -147,6 +152,29 @@ public class MainActivity extends AppCompatActivity {
 
     public void back (View v) {
         setContentView(R.layout.menu);
+    }
+
+    public void cupClick(View v) {
+
+        todayWater=todayWater-150;
+        TextView tv=(TextView)findViewById(R.id.tv);
+        String tW=String.valueOf(todayWater);
+        tv.setText(tW);
+    }
+    public void petClick(View v) {
+
+        todayWater=todayWater-500;
+        TextView tv=(TextView)findViewById(R.id.tv);
+        String tW=String.valueOf(todayWater);
+        tv.setText(tW);
+    }
+
+    public void bigClick(View v) {
+
+        todayWater=todayWater-1000;
+        TextView tv=(TextView)findViewById(R.id.tv);
+        String tW=String.valueOf(todayWater);
+        tv.setText(tW);
     }
 
 
